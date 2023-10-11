@@ -22,7 +22,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     for(let c= 0;c<40;c++) {
       for(let g = 0;g<40;g++){
         fill(random(250),random(250),random(250));
-        rect(width/2.0-102+(g*6),height/2-445+c*6,6,6);
+        rect(width/2.0-105+(g*6),height/2-445+c*6,6,6);
       }
     }
     fill(250,0,0,70);
