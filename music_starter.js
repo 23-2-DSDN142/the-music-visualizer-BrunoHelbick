@@ -64,18 +64,18 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     }
   }
 
-  for(let z = 0;z<5;z+=10){
-    fill(random(250),random(250),random(250));
-    y+y+gravity;
+  // for(let z = 0;z<5;z+=10){
+  //   fill(random(250),random(250),random(250));
+  //   y+y+gravity;
     
-      ellipse(x+20*z,y,20,20);
-      if(Y+20<height){
-        gravity=-0.1;
-      }
-      if(Y-20>height){
-        gravity=0.1;
-      }
-  }
+  //     ellipse(x+20*z,y,20,20);
+  //     if(y+20<height){
+  //       gravity=-0.1;
+  //     }
+  //     if(y-20>height){
+  //       gravity=0.1;
+  //     }
+  // }
 
   
   for(let  i = 0;i < amount;i++){
@@ -144,6 +144,6 @@ let mep = map(vocal,0,200,0,255);
   //   rotate(PI *bass);
   //   rect(-70, -70, 52, 52);
   //  fill(255,255,255);
-  rotate(0.02);
-  ellipse(width/2.0-40,height/2.0,20,20);
+  // rotate(0.02);
+  // ellipse(width/2.0-40,height/2.0,20,20);
 }
