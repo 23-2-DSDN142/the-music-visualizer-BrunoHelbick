@@ -22,12 +22,12 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     for(let c= 0;c<40;c++) {
       for(let g = 0;g<40;g++){
         fill(random(250),random(250),random(250));
-        rect(width/2.0-97.5+(g*5),height/2-140+c*5,5,5);
+        rect(width/2.0-102+(g*6),height/2-445+c*6,6,6);
       }
     }
     fill(250,0,0,70);
     strokeWeight(85);
-    ellipse(width/2.0,height/2.0-40,200,200);
+    ellipse(width/2.0,height/2.0-340,300,300);
     strokeWeight(0);
     for (let x = 0; x <= width; x += 10) {
       fill(5 * vocal, 15 * vocal, 10 * vocal);
@@ -76,20 +76,20 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   //       gravity=0.1;
   //     }
   // }
-
+ 
   
-  for(let  i = 0;i < amount;i++){
-    let size = random(10,40)
-    fill(255,255,255,random(100));
-    ellipse(random(width),current,size,size);
+  // for(let  i = 0;i < amount;i++){
+  //   let size = random(10,40)
+  //   fill(255,255,255,random(100));
+  //   ellipse(random(width),current,size,size);
 
 
 
-  }
-  current += 0.1;
-  if(current > height){
-    current = 0;
-  }
+  // }
+  // current += 0.1;
+  // if(current > height){
+  //   current = 0;
+  // }
 
 let mep = map(vocal,0,200,0,255);
 
