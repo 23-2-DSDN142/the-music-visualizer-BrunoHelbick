@@ -6,10 +6,15 @@ let x=width/2.0-50;
 let y=0;
 let amount = random(20,100);
 let current = height/2.0;
+let num =0;
+let g = -50;
+let timer = 0;
+let timeArray = []; 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  
-  let bgColor = color(0); //background color
+   stroke(0);
+   strokeWeight(0);
+  let bgColor = color(0); 
     background(bgColor);
     textFont('Comic Sans MS');
     rectMode(CENTER);
@@ -29,6 +34,8 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     strokeWeight(85);
     ellipse(width/2.0,height/2.0-340,300,300);
     strokeWeight(0);
+    fill(120);
+  rect(width/2.0,0,15,65);
     for (let x = 0; x <= width; x += 10) {
       fill(5 * vocal, 15 * vocal, 10 * vocal);
       let y = noise(xoff) * (vocal * 6);  // Get a noise value based on xoff and scale it according to 'vocal'
@@ -43,6 +50,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
         }
       xoff += 0.05;  // Increment xoff for the next loop iteration
     }
+    
     fill(200);
     strokeWeight(2);
     fill(2*vocal,2*vocal,2*vocal);  
@@ -60,10 +68,47 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
         
         let col = lerpColor(bgColor, checkerColor, t); // Interpolate between bgColor and checkerColor by t
         fill(col);
-        rect(0 + a, height / 2.0 + i+80, 10, 10);
+        rect(0 + a, height / 2.0+50 + i+120, 10, 10);
     }
   }
+  let bs = 1
+  //timeArray.push(bs);
+  // if(timer>10){
+  //   for(let i =0;i<20;i++){
+  //     for(let z =0;i<20;i++){
+  //     let g = random(-5,2);
+  //     if(g>1){textSize(100);
+  //       fill(255-i*6, 215-i*6, i*6);
+        
+  //     }}}
+  //   timer = 0;
+  // }
+  // ellipse( i*30, i*30,20,20);
 
+
+  // fill(90);
+  // rect(100,750-other,50,50+2*other);
+  // rect(200,640-drum,50,50+2*drum);
+  // rect(300,740-bass,50,50+2*bass);
+  // rect(400,660-vocal,50,50+2*vocal);
+  let myArray = [vocal, drum, bass, other]; 
+  let myArray2 = ['vocal', 'drum', 'bass', 'other']; 
+  fill(140,140,140,200);
+  rect(100,740-vocal-10+5+30,50,70+2*vocal-10);
+  fill(110,110,110,180);
+  rect(200,740-drum-100+5+40,50,50+2*drum-10);
+  fill(140,140,140,200);
+  rect(300,740-bass+5+40,50,50+2*bass-10);
+  fill(120,120,120,180);
+  rect(400,740-other-80+5+40,50,50+2*other-10);
+
+  drawStars();
+for (let i = 0; i < myArray.length; i++) {
+  let volume = myArray[i];
+  drawWindows(volume, 100 + i * 100, 750,myArray2[i]); // x position spaced by 100 for each building
+}
+  
+  
   // for(let z = 0;z<5;z+=10){
   //   fill(random(250),random(250),random(250));
   //   y+y+gravity;
@@ -93,6 +138,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
 let mep = map(vocal,0,200,0,255);
 
+  
 //NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------------   
 //NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP ------------------- 
 //NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------------
@@ -102,48 +148,56 @@ let mep = map(vocal,0,200,0,255);
 //NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------------
   var ae = map(40,100,0,255);
   ellipse(ae);
-  //  strokeWeight(0);
-  //  for(let i = 0; i < vocal*2;i++){
-  //    fill(2*vocal,2*vocal,2*vocal);
-  //    for(let a =0;a<vocal;a++){
-  //      ellipse(width/3+a*4+20,height/3-vocal,40+vocal,40+vocal);
-  //    }
-  //  }
-   // vocal bar is red
-  //  fill(200, 0, 0);
-  //  rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
-  //  fill(0);
-  //  text("vocals", bar_pos_x, height / 2 + 1 * bar_spacing + 8);
- 
-  //  // drum bar is green
-  //  fill(0, 200, 0);
-  //  rect(bar_pos_x, height / 2 + 2 * bar_spacing, 4 * drum, bar_height);
-  //  fill(0);
-  //  text("drums", bar_pos_x, height / 2 + 2 * bar_spacing + 8);
- 
-  //  // bass bar is blue
-  //  fill(50, 50, 240);
-  //  rect(bar_pos_x, height / 2 + 3 * bar_spacing, 4 * bass, bar_height);
-  //  fill(0);
-  //  text("bass", bar_pos_x, height / 2 + 3 * bar_spacing + 8);
- 
-  //  // other bar is white
-  //  fill(200, 200, 200);
-  //  rect(bar_pos_x, height / 2 + 4 * bar_spacing, 4 * other, bar_height);
-  //  fill(0);
-  //  text("other", bar_pos_x, height / 2 + 4 * bar_spacing + 8);
-  //  fill(255, 255, 0);
- 
-   // display "words"
-  //  textAlign(CENTER);
-  //  textSize(vocal);
-  //  text(words, width/2, height/3);
-  //  fill(0,0,0,0);
-  //  strokeWeight(1);
-  //  translate(width / 2, height / 2);
-  //   rotate(PI *bass);
-  //   rect(-70, -70, 52, 52);
-  //  fill(255,255,255);
-  // rotate(0.02);
+  if(vocal>50){
+  drawShootingStar(1);}
   // ellipse(width/2.0-40,height/2.0,20,20);
+  if(vocal>40){
+  fill(random(250),random(250),random(250),50);  
+  rect(0,0,width*2,height*2);}
+
+}
+function drawWindows(volume, xBase, yBase,a) {
+  let windowCount = volume / 10; // Assuming each "10" in volume represents one window
+  let v = 0;
+  
+  if(a == 'vocal'){
+    v = -15+40;
+  }
+  if(a == 'drum'){
+    v = -105+40;
+  }
+  if(a == 'bass'){
+    v =-5+40;
+  }
+  if(a == 'other'){
+    v = -85+40;
+  }
+  for (let i = 0; i < windowCount; i++) {
+    let yOffset = i * 20; // Assuming 20 units space for each window stack
+    fill(255, 234, 0,200);
+    rect(xBase - 10, yBase - yOffset+v, 10, 10);
+    rect(xBase + 10, yBase - yOffset+v, 10, 10);
+  }
+}
+function drawStars() {
+  let starsCount = 50; // number of stars you want to display
+  fill(255); // assuming stars are white
+
+  for (let i = 0; i < starsCount; i++) {
+    let starX = random(width);
+    let starY = random(height/1.2);
+    let starSize = random(2, 5); // random size for stars between 2 and 5
+    ellipse(starX, starY, starSize, starSize); // this function draws an ellipse (or circle since width and height are the same)
+  }
+}
+function drawShootingStar(trigger) {
+  if (trigger) { 
+    let startX = random(width);
+    let startY = random(height/2); 
+    let endX = startX + random(50,150);
+    let endY = startY - random(20,50);
+    stroke(255);
+    strokeWeight(2);
+    line(startX, startY, endX, endY);
+  }
 }
