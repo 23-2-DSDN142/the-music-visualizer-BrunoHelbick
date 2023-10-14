@@ -149,7 +149,7 @@ let mep = map(vocal,0,200,0,255);
   var ae = map(40,100,0,255);
   ellipse(ae);
   if(vocal>50){
-  drawShootingStar(1);}
+  drawShootingStar();}
   // ellipse(width/2.0-40,height/2.0,20,20);
   if(vocal>40){
   fill(random(250),random(250),random(250),50);  
@@ -190,8 +190,8 @@ function drawStars() {
     ellipse(starX, starY, starSize, starSize); // this function draws an ellipse (or circle since width and height are the same)
   }
 }
-function drawShootingStar(trigger) {
-  if (trigger) { 
+function drawShootingStar() {
+  
     let startX = random(width);
     let startY = random(height/2); 
     let endX = startX + random(50,150);
@@ -199,5 +199,5 @@ function drawShootingStar(trigger) {
     stroke(255);
     strokeWeight(2);
     line(startX, startY, endX, endY);
-  }
+  
 }
