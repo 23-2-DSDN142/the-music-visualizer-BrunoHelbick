@@ -12,9 +12,9 @@ let timer = 0;
 let timeArray = []; 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-   stroke(0);
+   stroke(20);
    strokeWeight(0);
-  let bgColor = color(0); 
+  let bgColor = color(20); 
     background(bgColor);
     textFont('Comic Sans MS');
     rectMode(CENTER);
@@ -31,24 +31,24 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
       }
     }
     fill(250,0,0,70);
-    strokeWeight(85);
+    strokeWeight(150);
     ellipse(width/2.0,height/2.0-340,300,300);
     strokeWeight(0);
     fill(120);
-  rect(width/2.0,0,15,65);
+  rect(width/2.0,0,3,135);
     for (let x = 0; x <= width; x += 10) {
       fill(5 * vocal, 15 * vocal, 10 * vocal);
-      let y = noise(xoff) * (vocal * 6);  // Get a noise value based on xoff and scale it according to 'vocal'
+      let y = noise(xoff) * (vocal * 6);  
       strokeWeight(0);
       fill(6 * vocal, 3 * vocal, 9 * vocal);
-      ellipse(x, y, 10, lease);  // Draw an ellipse at x, y
+      ellipse(x, y, 10, lease);  
         if(x==width){
           save = y;
         }
         if(x==0){
           saveOne = y;
         }
-      xoff += 0.05;  // Increment xoff for the next loop iteration
+      xoff += 0.05;  
     }
     
     fill(200);
@@ -59,105 +59,58 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     strokeWeight(0);
     for (let a = 0; a < width +3; a += 10) {
       for (let i = 0; i < height+6 / 2.0; i += 10) {
-        let t = map(i, 0, width / 2.0, 0, 1); // Map 'a' to a range of 0 to 1, to blend vertically
+        let t = map(i, 0, width / 2.0, 0, 1); 
         
-        let checkerColor = color(0); // for black color; use color(255) for white
+        let checkerColor = color(0); 
         
-        if ((int(a / 5) + int(i / 5)) % 2 == 0) // for creating checker pattern
-          checkerColor = color(255); // use color(0) for black
+        if ((int(a / 5) + int(i / 5)) % 2 == 0) 
+          checkerColor = color(255); 
         
-        let col = lerpColor(bgColor, checkerColor, t); // Interpolate between bgColor and checkerColor by t
+        let col = lerpColor(bgColor, checkerColor, t); 
         fill(col);
         rect(0 + a, height / 2.0+50 + i+120, 10, 10);
     }
   }
   let bs = 1
-  //timeArray.push(bs);
-  // if(timer>10){
-  //   for(let i =0;i<20;i++){
-  //     for(let z =0;i<20;i++){
-  //     let g = random(-5,2);
-  //     if(g>1){textSize(100);
-  //       fill(255-i*6, 215-i*6, i*6);
-        
-  //     }}}
-  //   timer = 0;
-  // }
-  // ellipse( i*30, i*30,20,20);
-
-
-  // fill(90);
-  // rect(100,750-other,50,50+2*other);
-  // rect(200,640-drum,50,50+2*drum);
-  // rect(300,740-bass,50,50+2*bass);
-  // rect(400,660-vocal,50,50+2*vocal);
+ 
   let myArray = [vocal, drum, bass, other]; 
   let myArray2 = ['vocal', 'drum', 'bass', 'other']; 
   fill(140,140,140,200);
   rect(100,740-vocal-10+5+30,50,70+2*vocal-10);
-  fill(110,110,110,180);
+  fill(80,80,80,160);
   rect(200,740-drum-100+5+40,50,50+2*drum-10);
   fill(140,140,140,200);
   rect(300,740-bass+5+40,50,50+2*bass-10);
-  fill(120,120,120,180);
+  fill(90,90,90,180);
   rect(400,740-other-80+5+40,50,50+2*other-10);
 
-  drawStars();
+  drawSnow();
 for (let i = 0; i < myArray.length; i++) {
   let volume = myArray[i];
-  drawWindows(volume, 100 + i * 100, 750,myArray2[i]); // x position spaced by 100 for each building
+  drawWindows(volume, 100 + i * 100, 750,myArray2[i]); 
 }
   
-  
-  // for(let z = 0;z<5;z+=10){
-  //   fill(random(250),random(250),random(250));
-  //   y+y+gravity;
-    
-  //     ellipse(x+20*z,y,20,20);
-  //     if(y+20<height){
-  //       gravity=-0.1;
-  //     }
-  //     if(y-20>height){
-  //       gravity=0.1;
-  //     }
-  // }
  
-  
-  // for(let  i = 0;i < amount;i++){
-  //   let size = random(10,40)
-  //   fill(255,255,255,random(100));
-  //   ellipse(random(width),current,size,size);
-
-
-
-  // }
-  // current += 0.1;
-  // if(current > height){
-  //   current = 0;
-  // }
 
 let mep = map(vocal,0,200,0,255);
 
   
-//NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------------   
-//NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP ------------------- 
-//NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------------
-//NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------------
-//NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------------
-//NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------------
-//NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------- NEEDS A MAP -------------------
-  var ae = map(40,100,0,255);
-  ellipse(ae);
+
   if(vocal>50){
-  drawShootingStar();}
-  // ellipse(width/2.0-40,height/2.0,20,20);
-  if(vocal>40){
-  fill(random(250),random(250),random(250),50);  
-  rect(0,0,width*2,height*2);}
+    drawBlizzard();}
+  
+  
+    let newRed = map(vocal, 20, 100, 0, 250); 
+    let newGreen = map(other, 40, 100, 0, 250);
+    let newBlue = map(bass, 40, 100, 0, 250);
+  
+    fill(newRed, newGreen, newBlue, 50);  
+    rect(0, 0, width * 2, height * 2);
+  
 
 }
 function drawWindows(volume, xBase, yBase,a) {
-  let windowCount = volume / 10; // Assuming each "10" in volume represents one window
+  let windowCount = volume / 10; 
   let v = 0;
   
   if(a == 'vocal'){
@@ -173,25 +126,24 @@ function drawWindows(volume, xBase, yBase,a) {
     v = -85+40;
   }
   for (let i = 0; i < windowCount; i++) {
-    let yOffset = i * 20; // Assuming 20 units space for each window stack
+    let yOffset = i * 20; 
     fill(255, 234, 0,200);
     rect(xBase - 10, yBase - yOffset+v, 10, 10);
     rect(xBase + 10, yBase - yOffset+v, 10, 10);
   }
 }
-function drawStars() {
-  let starsCount = 50; // number of stars you want to display
-  fill(255); // assuming stars are white
+function drawSnow() {
+  let starsCount = 50; 
+  fill(255);
 
   for (let i = 0; i < starsCount; i++) {
     let starX = random(width);
     let starY = random(height/1.2);
-    let starSize = random(2, 5); // random size for stars between 2 and 5
-    ellipse(starX, starY, starSize, starSize); // this function draws an ellipse (or circle since width and height are the same)
+    let starSize = random(2, 5); 
+    ellipse(starX, starY, starSize, starSize); 
   }
 }
-function drawShootingStar() {
-  
+function drawBlizzard() {
     let startX = random(width);
     let startY = random(height/2); 
     let endX = startX + random(50,150);
@@ -199,5 +151,4 @@ function drawShootingStar() {
     stroke(255);
     strokeWeight(2);
     line(startX, startY, endX, endY);
-  
 }
